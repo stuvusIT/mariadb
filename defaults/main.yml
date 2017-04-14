@@ -1,0 +1,25 @@
+---
+mariadb_port: 3306
+mariadb_socket: /run/mysql/mysqld.sock
+mariadb_mysqld_key_buffer_size: 384M
+mariadb_mysqld_max_allowed_packet: 1M
+mariadb_mysqld_table_open_cache: 512
+mariadb_mysqld_sort_buffer_size: 2M
+mariadb_mysqld_read_buffer_size: 2M
+mariadb_mysqld_read_rnd_buffer_size: 8M
+mariadb_mysqld_myisam_sort_buffer_size: 64M
+mariadb_mysqld_thread_cache_size: 8
+mariadb_mysqld_query_cache_size: 32M
+mariadb_mysqld_thread_concurrency: 8
+mariadb_mysqld_skip_networking: true
+mariadb_mysqld_log_bin: mysql-bin
+mariadb_mysqld_server_id: 1
+mariadb_mysqldump_quick: quick
+mariadb_mysqldump_max_allowed_packet: 16M
+mariadb_mysql_no_auto_rehash: true
+mariadb_mysql_save_updates: false
+mariadb_myisamchk_key_buffer_size: 256M
+mariadb_myisamchk_sort_buffer_size: 256M
+mariadb_myisamchk_read_buffer: 2M
+mariadb_myisamchk_write_buffer: 2M
+mariadb_mysqlhotcopy_interactive_timeout: true
