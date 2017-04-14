@@ -1,0 +1,18 @@
+---
+# tasks file for .
+
+- name: Update repositories cache and install "mariadb-server" package
+  apt:
+    name: mariadb-server
+    update_cache: yes
+
+- name: Copy config file
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/my.cnf
+
+- name: Enable and start 
+  systemd:
+    state: started
+    enabled: True
+    name: mysql

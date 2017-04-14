@@ -1,0 +1,21 @@
+galaxy_info:
+  author: Fritz Otlinghaus
+  description: Ansible role to configure and start an mariadb server
+  company: stuvus (https://stuvus.uni-stuttgart.de)
+
+  license: CC-BY-SA
+
+  min_ansible_version: 2.3
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - yakkety
+
+  galaxy_tags:
+    - stuvus
+    - mariadb
+    - mysql
+    - mysqld
+
+dependencies: []
