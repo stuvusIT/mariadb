@@ -10,9 +10,11 @@
   template:
     src: my.cnf.j2
     dest: /etc/mysql/my.cnf
+  register: reload_mariadb
 
 - name: Enable and start 
   systemd:
-    state: started
+    state: reloaded
     enabled: True
     name: mysql
+  when: ansible_service_mgr == "systemd" and reload_mariadb.changed
