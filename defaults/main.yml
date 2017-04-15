@@ -1,6 +1,6 @@
 ---
 mariadb_port: 3306
-mariadb_socket: /run/mysql/mysqld.sock
+mariadb_socket: /var/run/mysqld/mysqld.sock
 mariadb_mysqld_key_buffer_size: 384M
 mariadb_mysqld_max_allowed_packet: 1M
 mariadb_mysqld_table_open_cache: 512

@@ -18,27 +18,27 @@
 # The following options will be passed to all MySQL clients
 [client]
 #password   = your_password
-port        = {{- mariadb_port -}}
-socket      = {{- mariadb_socket -}}
+port        = {{ mariadb_port }}
+socket      = {{ mariadb_socket }}
 
 # Here follows entries for some specific programs
 
 # The MySQL server
 [mysqld]
-port        = {{- mariadb_port -}}
-socket      = {{- mariadb_socket -}}
+port        = {{ mariadb_port }}
+socket      = {{ mariadb_socket }}
 skip-external-locking
-key_buffer_size = {{- mariadb_mysqld_key_buffer_size -}}
-max_allowed_packet = {{- mariadb_mysqld_max_allowed_packet -}} 
-table_open_cache = {{- mariadb_mysqld_table_open_cache -}} 
-sort_buffer_size = {{- mariadb_mysqld_sort_buffer_size -}} 
-read_buffer_size = {{- mariadb_mysqld_read_buffer_size -}} 
-read_rnd_buffer_size = {{- mariadb_mysqld_read_rnd_buffer_size -}}
-myisam_sort_buffer_size = {{- mariadb_mysqld_myisam_sort_buffer_size -}}
-thread_cache_size = {{- mariadb_mysqld_thread_cache_size -}}
-query_cache_size = {{- mariadb_mysqld_query_cache_size -}} 
+key_buffer_size = {{ mariadb_mysqld_key_buffer_size }}
+max_allowed_packet = {{ mariadb_mysqld_max_allowed_packet }} 
+table_open_cache = {{ mariadb_mysqld_table_open_cache }} 
+sort_buffer_size = {{ mariadb_mysqld_sort_buffer_size }} 
+read_buffer_size = {{ mariadb_mysqld_read_buffer_size }} 
+read_rnd_buffer_size = {{ mariadb_mysqld_read_rnd_buffer_size }}
+myisam_sort_buffer_size = {{ mariadb_mysqld_myisam_sort_buffer_size }}
+thread_cache_size = {{ mariadb_mysqld_thread_cache_size }}
+query_cache_size = {{ mariadb_mysqld_query_cache_size }} 
 # Try number of CPU's*2 for thread_concurrency
-thread_concurrency = {{- mariadb_mysqld_thread_concurrency -}}
+thread_concurrency = {{ mariadb_mysqld_thread_concurrency }}
 
 # Point the following paths to a dedicated disk
 #tmpdir     = /tmp/
@@ -56,12 +56,12 @@ thread_concurrency = {{- mariadb_mysqld_thread_concurrency -}}
 
 # Replication Master Server (default)
 # binary logging is required for replication
-log-bin={{- mariadb_mysqld_log_bin -}}
+log-bin={{ mariadb_mysqld_log_bin }}
 
 # required unique id between 1 and 2^32 - 1
 # defaults to 1 if master-host is not set
 # but will not function as a master if omitted
-server-id   = {{- mariadb_mysqld_server_id -}}
+server-id   = {{ mariadb_mysqld_server_id }}
 
 # Replication Slave (comment out master section to use this)
 #
@@ -139,7 +139,7 @@ server-id   = {{- mariadb_mysqld_server_id -}}
 {% if mariadb_mysqldump_quick %}
     quick
 {% endif %}
-max_allowed_packet = {{- mariadb_mysqldump_max_allowed_packet -}}
+max_allowed_packet = {{ mariadb_mysqldump_max_allowed_packet }}
 
 [mysql]
 {% if mariadb_mysql_no_auto_rehash %}
@@ -152,10 +152,10 @@ max_allowed_packet = {{- mariadb_mysqldump_max_allowed_packet -}}
 {% endif %}
 
 [myisamchk]
-key_buffer_size = {{- mariadb_myisamchk_key_buffer_size -}}
-sort_buffer_size = {{- mariadb_myisamchk_sort_buffer_size -}}
-read_buffer = {{- mariadb_myisamchk_read_buffer -}}
-write_buffer = {{- mariadb_myisamchk_write_buffer -}}
+key_buffer_size = {{ mariadb_myisamchk_key_buffer_size }}
+sort_buffer_size = {{ mariadb_myisamchk_sort_buffer_size }}
+read_buffer = {{ mariadb_myisamchk_read_buffer }}
+write_buffer = {{ mariadb_myisamchk_write_buffer }}
 
 [mysqlhotcopy]
 {% if mariadb_mysqlhotcopy_interactive_timeout %} 
