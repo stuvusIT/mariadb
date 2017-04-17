@@ -1,5 +1,5 @@
 ---
-# tasks file for .
+# tasks file for mariadb
 
 - name: Update repositories cache and install "mariadb-server" package
   apt:
