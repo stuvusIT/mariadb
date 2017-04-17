@@ -1,6 +1,6 @@
-# Role Name
+# Mariadb Ansible Role
 
-This ansible role configures an mariadb server.
+This ansible role configures a mariadb server.
 
 
 ## Requirements
@@ -10,7 +10,7 @@ An apt based packagmanager and systemd
 
 ## Role Variables
 
-Read the mariadb doc to get to know what vars can be set
+Read the [mariadb doc](https://mariadb.com/kb/en/mariadb/server-system-variables/) to get to know what vars can be set
 
 
 ## Example Playbook

@@ -1,6 +1,6 @@
 galaxy_info:
   author: Fritz Otlinghaus
-  description: Ansible role to configure and start an mariadb server
+  description: Ansible role to configure and start a mariadb server
   company: stuvus (https://stuvus.uni-stuttgart.de)
 
   license: CC-BY-SA
