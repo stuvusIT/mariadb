@@ -4,10 +4,12 @@
   apt:
     update_cache: yes
   changed_when: false
+  when: ansible_pkg_mgr == "apt"
     
 - name: Install "mariadb-server" package
   apt:
     name: mariadb-server
+  when: ansible_pkg_mgr == "apt"
 
 - name: Copy config file
   template:
