@@ -1,10 +1,13 @@
 ---
-# tasks file for mariadb
-
-- name: Update repositories cache and install "mariadb-server" package
+# main tasks file for mariadb
+- name: Update repositories cache
+  apt:
+    update_cache: yes
+  changed_when: false
+    
+- name: Install "mariadb-server" package
   apt:
     name: mariadb-server
-    update_cache: yes
 
 - name: Copy config file
   template:
