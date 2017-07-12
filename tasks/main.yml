@@ -5,6 +5,7 @@
   apt:
     name: mariadb-server
     update_cache: yes
+    state: latest
 
 - name: Copy config file
   template:
