@@ -1,11 +1,15 @@
 ---
-# tasks file for mariadb
-
-- name: Update repositories cache and install "mariadb-server" package
+# main tasks file for mariadb
+- name: Update repositories cache
+  apt:
+    update_cache: yes
+  changed_when: false
+  when: ansible_pkg_mgr == "apt"
+    
+- name: Install "mariadb-server" package
   apt:
     name: mariadb-server
-    update_cache: yes
-    state: latest
+  when: ansible_pkg_mgr == "apt"
 
 - name: Copy config file
   template:
@@ -15,7 +19,7 @@
 
 - name: Enable and start 
   systemd:
-    state: reloaded
+    state: restarted
     enabled: True
     name: mysql
   when: ansible_service_mgr == "systemd" and reload_mariadb.changed

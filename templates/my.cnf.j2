@@ -123,7 +123,6 @@ server-id   = {{ mariadb_mysqld_server_id }}
 {% if mariadb_binlog_format is defined %}
     binlog_format={{ mariadb_binlog_format }}
 {% endif %}
-#binlog_format=mixed
 
 # Uncomment the following if you are using InnoDB tables
 #innodb_data_home_dir = @localstatedir@
