@@ -23,3 +23,4 @@ mariadb_myisamchk_sort_buffer_size: 256M
 mariadb_myisamchk_read_buffer: 2M
 mariadb_myisamchk_write_buffer: 2M
 mariadb_mysqlhotcopy_interactive_timeout: true
+mariadb_binlog_format: "MIXED"
