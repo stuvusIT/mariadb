@@ -119,8 +119,10 @@ server-id   = {{ mariadb_mysqld_server_id }}
 # binary logging - not required for slaves, but recommended
 #log-bin=mysql-bin
 #
-# binary logging format - mixed recommended 
-#binlog_format=mixed
+# binary logging format - mixed recommended
+{% if mariadb_binlog_format is defined %}
+    binlog_format={{ mariadb_binlog_format }}
+{% endif %}
 
 # Uncomment the following if you are using InnoDB tables
 #innodb_data_home_dir = @localstatedir@
