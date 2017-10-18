@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Fritz Otlinghaus
   description: Ansible role to configure and start a mariadb server
