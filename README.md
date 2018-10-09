@@ -21,7 +21,9 @@ Read the [mariadb doc](https://mariadb.com/kb/en/mariadb/server-system-variables
 ```yml
 hosts: wordpress
 roles:
-    - mariadb
+    - role: mariadb
+      mariadb_port: 3307
+      mariadb_socket: /tmp/mariadb.sock
 ```
 
 
