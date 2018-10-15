@@ -1,4 +1,7 @@
 ---
+mariadb_ensure_databases: []
+mariadb_ensure_users: {}
+
 mariadb_port: 3306
 mariadb_socket: /var/run/mysqld/mysqld.sock
 mariadb_mysqld_key_buffer_size: 384M
