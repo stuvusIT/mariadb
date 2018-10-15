@@ -10,8 +10,20 @@ An apt based packagmanager and systemd
 
 ## Role Variables
 
-Read the [mariadb doc](https://mariadb.com/kb/en/mariadb/server-system-variables/) to get to know what vars can be set
+Read the [mariadb doc](https://mariadb.com/kb/en/mariadb/server-system-variables/) to get to know what vars can be set.
 
+Additionally, these variables can be set:
+
+### mariadb_ensure_databases
+
+List of database names
+
+### mariadb_ensure_users
+
+Dict of users. Each key is a username and the value is a dict with two keys:
+
+- `password` - Optional password
+- `privileges` - Ansible-style MariaDB privilege configuration
 
 ## Example Playbook
 
@@ -24,6 +36,15 @@ roles:
     - role: mariadb
       mariadb_port: 3307
       mariadb_socket: /tmp/mariadb.sock
+      mariadb_ensure_databases:
+        - wordpress
+        - example
+      mariadb_ensure_users:
+        wordpress:
+          password: wp
+          privileges: "wordpress:*:ALL"
+        admin:
+          privileges: "*:*:ALL"
 ```
 
 
