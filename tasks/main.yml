@@ -1,5 +1,5 @@
 ---
-- name: Install required package
+- name: Install mariadb-server package
   apt:
     name: mariadb-server
 
@@ -9,19 +9,19 @@
     dest: /etc/mysql/my.cnf
   register: reload_mariadb
 
-- name: Enable and start
+- name: Enable and start mysql service
   systemd:
     state: restarted
     enabled: True
     name: mysql
   when: ansible_service_mgr == "systemd" and reload_mariadb.changed
 
-- name: Ensure databases
+- name: Ensure configured databases exist
   mysql_db:
     name: "{{ item }}"
   with_items: "{{ mariadb_ensure_databases }}"
 
-- name: Ensure users
+- name: Ensure configured users exist
   mysql_user:
     name: "{{ item }}"
     password: "{{ mariadb_ensure_users[item]['password'] | default(omit) }}"
