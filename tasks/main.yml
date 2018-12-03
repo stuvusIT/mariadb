@@ -1,10 +1,9 @@
 ---
 - name: Install mariadb-server and python-mysqldb packages
   apt:
-    name: "{{ item }}"
-  with_items:
-    - mariadb-server
-    - python-mysqldb
+    name:
+      - mariadb-server
+      - python-mysqldb
 
 - name: Copy config file
   template:
@@ -26,7 +25,7 @@
 
 - name: Ensure configured users exist
   mysql_user:
-    name: "{{ item }}"
-    password: "{{ mariadb_ensure_users[item]['password'] | default(omit) }}"
-    priv: "{{ mariadb_ensure_users[item]['privileges'] | default(omit) }}"
-  with_items: "{{ mariadb_ensure_users.keys() }}"
+    name: "{{ item.key }}"
+    password: "{{ item.value['password'] | default(omit) }}"
+    priv: "{{ item.value['privileges'] | default(omit) }}"
+  loop: "{{ mariadb_ensure_users |dict2items }}"
