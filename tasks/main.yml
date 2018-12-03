@@ -1,10 +1,9 @@
 ---
 - name: Install mariadb-server and python-mysqldb packages
   apt:
-    name: "{{ item }}"
-  with_items:
-    - mariadb-server
-    - python-mysqldb
+    name:
+      - mariadb-server
+      - python-mysqldb
 
 - name: Copy config file
   template:
