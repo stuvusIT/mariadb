@@ -28,4 +28,5 @@
     name: "{{ item.key }}"
     password: "{{ item.value['password'] | default(omit) }}"
     priv: "{{ item.value['privileges'] | default(omit) }}"
+  no_log: True
   loop: "{{ mariadb_ensure_users |dict2items }}"
