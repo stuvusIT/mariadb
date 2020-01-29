@@ -30,14 +30,14 @@ port        = {{ mariadb_port }}
 socket      = {{ mariadb_socket }}
 skip-external-locking
 key_buffer_size = {{ mariadb_mysqld_key_buffer_size }}
-max_allowed_packet = {{ mariadb_mysqld_max_allowed_packet }} 
-table_open_cache = {{ mariadb_mysqld_table_open_cache }} 
-sort_buffer_size = {{ mariadb_mysqld_sort_buffer_size }} 
-read_buffer_size = {{ mariadb_mysqld_read_buffer_size }} 
+max_allowed_packet = {{ mariadb_mysqld_max_allowed_packet }}
+table_open_cache = {{ mariadb_mysqld_table_open_cache }}
+sort_buffer_size = {{ mariadb_mysqld_sort_buffer_size }}
+read_buffer_size = {{ mariadb_mysqld_read_buffer_size }}
 read_rnd_buffer_size = {{ mariadb_mysqld_read_rnd_buffer_size }}
 myisam_sort_buffer_size = {{ mariadb_mysqld_myisam_sort_buffer_size }}
 thread_cache_size = {{ mariadb_mysqld_thread_cache_size }}
-query_cache_size = {{ mariadb_mysqld_query_cache_size }} 
+query_cache_size = {{ mariadb_mysqld_query_cache_size }}
 # Try number of CPU's*2 for thread_concurrency
 thread_concurrency = {{ mariadb_mysqld_thread_concurrency }}
 
@@ -49,9 +49,9 @@ thread_concurrency = {{ mariadb_mysqld_thread_concurrency }}
 # All interaction with mysqld must be made via Unix sockets or named pipes.
 # Note that using this option without enabling named pipes on Windows
 # (via the "enable-named-pipe" option) will render mysqld useless!
-# 
+#
 {% if mariadb_mysqld_skip_networking  %}
-    skip-networking    
+    skip-networking
 {% endif %}
 
 
@@ -146,12 +146,12 @@ max_allowed_packet = {{ mariadb_mysqldump_max_allowed_packet }}
 
 [mysql]
 {% if mariadb_mysql_no_auto_rehash %}
-    no-auto-rehash    
+    no-auto-rehash
 {% endif %}
 
 # Remove the next comment character if you are not familiar with SQL
 {% if mariadb_mysql_save_updates %}
-    safe-updates    
+    safe-updates
 {% endif %}
 
 [myisamchk]
@@ -161,6 +161,6 @@ read_buffer = {{ mariadb_myisamchk_read_buffer }}
 write_buffer = {{ mariadb_myisamchk_write_buffer }}
 
 [mysqlhotcopy]
-{% if mariadb_mysqlhotcopy_interactive_timeout %} 
-    interactive-timeout    
+{% if mariadb_mysqlhotcopy_interactive_timeout %}
+    interactive-timeout
 {% endif %}
