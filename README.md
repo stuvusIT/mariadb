@@ -20,9 +20,11 @@ List of database names
 
 ### mariadb_ensure_users
 
-Dict of users. Each key is a username and the value is a dict with two keys:
+Dict of users. Each key is a username and the value is a dict with up to three
+keys:
 
 - `password` - Optional password
+- `host` - Optional host which the user can access the DB from
 - `privileges` - Ansible-style MariaDB privilege configuration
 
 ## Example Playbook
@@ -45,6 +47,9 @@ roles:
           privileges: "wordpress.*:ALL"
         admin:
           privileges: "*.*:ALL"
+        public_account:
+          privileges: "public.*:ALL"
+          host: "192.168.1.%"
 ```
 
 
