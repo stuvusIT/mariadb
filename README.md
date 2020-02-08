@@ -42,9 +42,9 @@ roles:
       mariadb_ensure_users:
         wordpress:
           password: wp
-          privileges: "wordpress:*:ALL"
+          privileges: "wordpress.*:ALL"
         admin:
-          privileges: "*:*:ALL"
+          privileges: "*.*:ALL"
 ```
 
 
