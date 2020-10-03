@@ -20,7 +20,7 @@
   when: ansible_service_mgr == "systemd" and reload_mariadb.changed
 
 - name: Ensure configured databases exist
-  mysql_db:
+  community.mysql.mysql_db:
     name: "{{ item }}"
   with_items: "{{ mariadb_ensure_databases }}"
 
