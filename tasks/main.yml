@@ -3,7 +3,6 @@
   apt:
     name:
       - mariadb-server
-      - python-mysqldb
       - python3-mysqldb
 
 - name: Copy config file
